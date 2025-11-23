@@ -1,0 +1,192 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: "Comic Sans MS", "Chalkboard SE", sans-serif;
+  overflow: hidden;
+  /* Default for desktop to keep single screen feel */
+}
+
+.app-title {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 3rem;
+  color: #333;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  user-select: none;
+  position: relative;
+  z-index: 60;
+  font-family: "Helvetica Neue", Arial, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+  /* Ensure title is above everything */
+}
+
+.tally-container {
+  position: absolute;
+  top: 100px;
+  bottom: 40px;
+  right: 40px;
+  width: 320px;
+  /* Reduced by 20% from 400px */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 50;
+}
+
+.tally-iframe {
+  width: 118%;
+  /* Compensate for scale(0.85) -> 100/0.85 approx 117.6 */
+  height: 118%;
+  transform: scale(0.85);
+  transform-origin: top left;
+  border: none;
+  display: block;
+}
+
+.screenshot-btn-container {
+  position: absolute;
+  bottom: 100px;
+  /* Not too close to edge */
+  left: 80px;
+  /* Shifted right */
+  z-index: 1000;
+}
+
+.screenshot-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #000;
+  /* Black background */
+  color: #fff;
+  /* White text */
+  border: 2px solid #000;
+  border-radius: 8px;
+  /* Squarer look */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: "Helvetica Neue", Arial, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.screenshot-btn:hover {
+  background-color: #fff;
+  /* White background */
+  color: #000;
+  /* Black text */
+  border: 2px solid #000;
+  /* Black border */
+  transform: scale(1.05);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .app-container {
+    overflow-y: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collage-area {
+    height: 60vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .tally-container {
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90%;
+    /* Floating card width */
+    max-width: 350px;
+    height: 600px;
+    /* Reduced height */
+    border-radius: 15px;
+    /* Rounded corners */
+    margin: 20px auto;
+    /* Center horizontally with margin */
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .tally-iframe {
+    width: 125%;
+    /* Compensate for scale(0.8) */
+    height: 125%;
+    transform: scale(0.8);
+    /* Smaller text */
+    transform-origin: top left;
+  }
+
+  .screenshot-btn-container {
+    bottom: 20px;
+    /* Adjust for mobile */
+    left: 20px;
+  }
+
+  .app-title {
+    font-size: 2rem;
+  }
+}
+
+.app-footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  font-size: 0.8rem;
+  font-family: "Helvetica Neue", Arial, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+  pointer-events: none;
+  /* Let clicks pass through to stickers if they overlap */
+  z-index: 50;
+  /* Below stickers but above background */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.app-footer a {
+  pointer-events: auto;
+  /* Enable clicking on the link */
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.app-footer svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: opacity 0.2s;
+}
+
+.app-footer a:hover {
+  color: white;
+  /* Turn text white on hover */
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  /* Add shadow for better visibility */
+}
+
+.app-footer a:hover svg {
+  opacity: 1;
+  fill: white;
+  /* Turn icon white on hover */
+}
