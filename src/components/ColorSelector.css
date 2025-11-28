@@ -1,0 +1,67 @@
+.color-selector-bottom {
+  position: absolute;
+  top: calc(50% + 220px);
+  /* Below centered image */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.color-options-numbered {
+  display: flex;
+  gap: 20px;
+}
+
+.number-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 2px solid #333;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  font-family: "Helvetica Neue", Arial, "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+}
+
+.number-button:hover {
+  background-color: #f0f0f0;
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.number-button.selected {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+  box-shadow: 0 0 0 3px rgba(51, 51, 51, 0.2);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .color-selector-bottom {
+    top: calc(50% + 180px);
+    /* Adjusted for smaller mobile image */
+  }
+
+  .number-button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+  }
+
+  .color-options-numbered {
+    gap: 15px;
+  }
+}

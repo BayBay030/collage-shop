@@ -1,16 +1,17 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
 
-const DraggableNote = () => {
+const DraggableNote = ({ initialX, initialY }) => {
     return (
         <Motion.div
             drag
             dragMomentum={false}
-            initial={{ x: 260, y: window.innerHeight - 250 }} // Aligned right of button. Bottom at 100px (same as btn). Top = H - 100 - 150 = H - 250
             whileHover={{ cursor: 'grab' }}
             whileDrag={{ cursor: 'grabbing', scale: 1.05, zIndex: 200 }}
             style={{
                 position: 'absolute',
+                left: initialX || 260,
+                top: initialY || (window.innerHeight - 250),
                 zIndex: 150, // Above normal stickers
             }}
         >
