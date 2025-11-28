@@ -171,6 +171,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: auto;
+    z-index: 1000;
+    /* Ensure button is above other elements */
   }
 
   .app-title {
