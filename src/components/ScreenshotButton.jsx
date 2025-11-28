@@ -34,7 +34,7 @@ const ScreenshotButton = () => {
                 onClick={handleScreenshot}
                 className="screenshot-btn"
             >
-                📸 Save Collage
+                截圖 Save
             </button>
         </div>
     );
